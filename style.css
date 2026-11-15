@@ -1,0 +1,231 @@
+/* Snehshish Ahuja — personal portfolio
+   A student project made with HTML and CSS. */
+
+:root {
+  --background: #071522;
+  --surface: #0c2032;
+  --surface-light: #102a40;
+  --surface-blue: #123652;
+  --text: #eaf3fb;
+  --muted: #a9bdce;
+  --blue: #9bd3ff;
+  --blue-soft: #c8e7ff;
+  --line: #234057;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+h1, h2, h3 { font-family: "Lora", Georgia, serif; font-weight: 600; line-height: 1.2; }
+h2 { color: var(--text); font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -1px; }
+p { color: var(--muted); }
+a { color: inherit; }
+
+.container { width: min(1100px, calc(100% - 48px)); margin: 0 auto; }
+.section { padding: 90px 0; }
+.white { background: var(--background); }
+.pale { background: var(--surface); }
+.warm { background: #0a1b2a; }
+
+.eyebrow {
+  margin-bottom: 20px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* The navigation stays at the top while the page scrolls. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(7, 21, 34, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+.nav {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.brand span {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  color: var(--blue);
+  font-size: 11px;
+}
+nav { display: flex; flex-wrap: wrap; gap: 24px; }
+nav a {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+nav a:hover, nav a:focus { color: var(--blue); }
+
+/* The hero uses CSS Grid to place the introduction beside the interests card. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 105px 0 90px;
+  background: linear-gradient(115deg, #0b2032 0%, #0b2942 58%, #103b5b 100%);
+}
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr;
+  align-items: center;
+  gap: 70px;
+}
+.hero h1 {
+  color: var(--text);
+  font-size: clamp(2.7rem, 5.8vw, 4.8rem);
+  letter-spacing: -2px;
+}
+.hero h1 em { color: var(--blue); font-style: normal; }
+.hero .eyebrow { color: var(--blue); }
+.hero-copy { max-width: 620px; margin-top: 25px; color: #c4d6e5; font-size: 16px; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 30px; }
+.button {
+  display: inline-block;
+  padding: 12px 19px;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+  background: var(--blue);
+  color: #082035;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: .2s ease;
+}
+.button:hover { background: var(--blue-soft); border-color: var(--blue-soft); transform: translateY(-2px); }
+.plain-link { color: var(--text); font-size: 12px; text-decoration: none; }
+.plain-link:hover { color: var(--blue); }
+.hero-note { max-width: 430px; margin-top: 42px; color: #a9c0d2; font-size: 12px; letter-spacing: .3px; }
+.interest-card { padding: 25px; border: 1px solid rgba(180, 218, 247, .25); background: rgba(5, 19, 31, .32); }
+.card-label { margin-bottom: 17px; color: var(--blue); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; }
+.interest-card .card-label { color: #b9d9f2; }
+.interest-card ul { margin: 22px 0; list-style: none; }
+.interest-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  color: var(--text);
+  font-family: "Lora", Georgia, serif;
+  font-size: 17px;
+}
+.muted-note { color: #b2c7d8; font-size: 11px; }
+.watermark {
+  position: absolute;
+  right: 3%;
+  bottom: -105px;
+  color: rgba(255,255,255,.035);
+  font-family: "Lora", Georgia, serif;
+  font-size: 250px;
+}
+
+/* About section */
+.split { display: grid; grid-template-columns: .8fr 1.2fr; gap: 85px; }
+.prose p { margin-bottom: 18px; font-size: 14px; }
+.prose .lead {
+  color: var(--blue-soft);
+  font-family: "Lora", Georgia, serif;
+  font-size: 21px;
+  line-height: 1.55;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+.tags span { padding: 6px 11px; border: 1px solid var(--line); color: var(--blue-soft); font-size: 10px; font-weight: 600; }
+
+/* Education and project cards use CSS Grid. */
+.section-title { margin-bottom: 35px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.info-card { padding: 30px; border: 1px solid var(--line); background: var(--surface-light); }
+.dark { border-color: #285577; background: #102f49; }
+.info-card h3 { margin-bottom: 12px; color: var(--text); font-size: 22px; }
+.course { margin-bottom: 14px; color: var(--blue); font-size: 12px; font-weight: 600; }
+.info-card > p:not(.card-label):not(.course) { font-size: 13px; }
+.dark > p:last-child { color: #c4d6e5; }
+.section-intro { max-width: 600px; margin: -20px 0 30px; font-size: 14px; }
+.info-card:hover { border-color: #6eadd8; transform: translateY(-3px); transition: .2s ease; }
+.small-note { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); color: #a9c0d2; font-size: 10px !important; font-style: italic; }
+
+/* Experience rows */
+.experience-list { border-top: 1px solid var(--line); }
+.experience-row {
+  display: grid;
+  grid-template-columns: .55fr 1.45fr;
+  gap: 35px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.row-label { padding-top: 4px; color: var(--blue); font-size: 9px; font-weight: 700; letter-spacing: 1.3px; }
+.experience-row h3 { margin-bottom: 8px; color: var(--text); font-size: 20px; }
+.experience-row p:last-child { max-width: 700px; font-size: 13px; }
+
+/* Personal values */
+.values p { padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--blue-soft); font-size: 13px; }
+.values p:first-child { padding-top: 0; }
+.values span { margin-right: 14px; color: var(--blue); font-size: 10px; font-weight: 700; }
+
+/* Contact and footer */
+.contact { padding: 85px 0; background: linear-gradient(115deg, #0c2740, #103b5b); }
+.contact-grid { display: grid; grid-template-columns: 1fr .8fr; align-items: center; gap: 75px; }
+.contact h2 { color: var(--text); }
+.contact-grid > div:last-child > p { margin-bottom: 22px; color: #c4d6e5; font-size: 14px; }
+.linkedin-id { margin-top: 12px; margin-bottom: 0 !important; font-size: 11px !important; }
+.linkedin-id a { color: var(--blue-soft); text-decoration: none; }
+.linkedin-id a:hover { text-decoration: underline; }
+.contact-note { margin-top: 20px; margin-bottom: 0; color: #a9c0d2 !important; font-size: 10px !important; font-style: italic; }
+footer { padding: 20px 0; background: #04101a; }
+.footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: #9eb4c5; font-size: 10px; }
+.footer a { color: var(--blue); text-decoration: none; }
+
+/* Tablet and mobile layouts */
+@media (max-width: 800px) {
+  .section { padding: 70px 0; }
+  .hero-grid, .split, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .hero { padding: 75px 0; }
+  .interest-card { max-width: 440px; }
+}
+@media (max-width: 600px) {
+  .container { width: calc(100% - 32px); }
+  .nav { align-items: flex-start; flex-direction: column; padding: 13px 0; }
+  nav { gap: 10px 16px; }
+  nav a { font-size: 11px; }
+  .hero h1 { font-size: 2.55rem; letter-spacing: -1.2px; }
+  .hero-copy { font-size: 14px; }
+  .hero-actions { align-items: flex-start; flex-direction: column; }
+  .cards { grid-template-columns: 1fr; }
+  .info-card { padding: 24px; }
+  .experience-row { grid-template-columns: 1fr; gap: 8px; }
+  .footer { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
